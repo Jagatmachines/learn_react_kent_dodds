@@ -1,0 +1,40 @@
+<div>
+    <div id='root'></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/prop-types@15.6.0/prop-types.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+
+        function SayHello(props) {
+            return (
+                <div>
+                    Hello {props.firstName} {props.lastName} !
+                </div>
+            )
+        }
+
+        /* const PropTypes = {
+            string (props, propName, componentName) {
+                if (typeof props[propName] !== 'string')
+                    return new Error(`Hey, you should pass a string for ${propName} in ${componentName} but you passed a ${typeof props[propName]}!`)
+            }
+        } */
+
+        SayHello.propTypes = {
+            firstName: PropTypes.string,
+            lastName: PropTypes.string
+        }
+
+        const element = (
+            <SayHello firstName={true} />
+        )
+
+        console.log(element);
+
+        ReactDOM.render(element, rootElement)
+    </script>
+</div>

@@ -1,0 +1,77 @@
+<div>
+    <div id='root'></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <!-- <script type="text/javascript"> -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+
+        //without react
+        /* const element = document.createElement('div')
+        element.textContent = 'Hello World'
+        element.className = 'container'
+        rootElement.appendChild(element) */
+
+        //with react
+        /* const element = React.createElement(
+            'div', 
+            {
+                className   : 'container',
+                children: ['Hello world', ' Good bye world']
+            }, 
+            'Helloa World', 'Good Bye world'
+        ) */
+        const content = 'Hello world react'
+        const myClassName = 'container'
+        
+        const props = {
+            className : 'container',
+            children : 'Hello world program'
+        }
+
+        //const element = <div className={myClassName + '_hi-there'}>{content}</div>
+
+        const element = (
+            <div 
+                {...props} 
+                
+                //override the props
+                className='my_classname'
+                //children = ''
+            >Hi There</div>
+        )
+
+        const helloWorld = <div>Hello World Data</div>
+        
+        const message = (props) => <div>{props.msg}</div>
+
+        //need to captalize for referencing
+        const Message = (props) => <div>{props.msg}</div>
+
+        //regular children props
+        const MessageItem = (props) => <div>{props.children}</div>
+
+        const elementContainer = (
+            <div className='container'>
+                {helloWorld}
+                {message({msg: 'Hello data'})}
+                {React.createElement(message, {msg: 'Ayo data'})}
+                <Message msg='Good bye world' />
+                <MessageItem>Data Hey</MessageItem>
+
+                <MessageItem>
+                    Item
+                    <MessageItem>Datas</MessageItem>
+                </MessageItem>
+            </div>
+        )
+
+
+        console.log(elementContainer);
+
+        ReactDOM.render(elementContainer, rootElement)
+    </script>
+</div>

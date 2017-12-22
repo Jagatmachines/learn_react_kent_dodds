@@ -12,7 +12,7 @@
         function SayHello(props) {
             return (
                 <div>
-                    Hello {props.firstName} {props.lastName} !
+                    Hello {props.firstName}{' '}{props.lastName} !
                 </div>
             )
         }
@@ -25,8 +25,8 @@
         } */
 
         SayHello.propTypes = {
-            firstName: PropTypes.string,
-            lastName: PropTypes.string
+            firstName: PropTypes.string.isRequired,
+            lastName: PropTypes.string.isRequired
         }
 
         const element = (
